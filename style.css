@@ -1,0 +1,111 @@
+/* -------------------------------------------------------------------
+   1) Fill screen with video
+   ------------------------------------------------------------------- */
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.background-video {
+  position: absolute;
+  inset: 0;           /* shorthand for top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* -------------------------------------------------------------------
+   2) Header: space-between logo/nav
+   ------------------------------------------------------------------- */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+}
+
+.site-header .logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: white;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------
+   3) Titles: bottom corners
+   ------------------------------------------------------------------- */
+.titles {
+  position: absolute;
+  bottom: 20rem;
+  left: 5%;
+  right: 12%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+}
+
+.left-title,
+.right-title {
+  color: white;
+  font-weight: 800;
+  font-size: 4vw;      /* scales with viewport width */
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------
+   4) Responsive tweaks
+   ------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0.75rem 4%;
+  }
+  .site-header .logo {
+    font-size: 1.25rem;
+  }
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+  .left-title,
+  .right-title {
+    font-size: 6vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 4%;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .site-header .logo {
+    font-size: 1.1rem;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+  .left-title,
+  .right-title {
+    font-size: 8vw;
+  }
+}
